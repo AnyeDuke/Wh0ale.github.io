@@ -1,7 +1,7 @@
 # Site settings
 title: Wh0ale's Blog
 SEOTitle: Wh0ale的博客 | BY Blog
-header-img: img/post-bg-desk.jpg
+header-img: img/22s.jpg
 email: AttackerWh0ale@gmail.com
 description: "No master and rookie，only hardworking and lazy."
 keyword: "Web安全，移动安全，windows安全，漏洞挖掘，代码审计，智能合约"
@@ -12,16 +12,16 @@ github_repo: "https://github.com/Wh0ale/Wh0ale.github.io.git" # you code reposit
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/wallhaven-699853.png     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
 # weibo_username:     Wh0ale
-zhihu_username:     Whoale
+zhihu_username:     _Andy_
 github_username:    Wh0ale
-twitter_username:   Wh0ale
+twitter_username:   An0dy1
 
 
 
