@@ -1,5 +1,5 @@
 # Site settings
-title: BY Blog
+title: Wh0ale's Blog
 SEOTitle: Wh0ale的博客 | BY Blog
 header-img: img/post-bg-desk.jpg
 email: AttackerWh0ale@gmail.com
@@ -7,7 +7,7 @@ description: "No master and rookie，only hardworking and lazy."
 keyword: "Web安全，移动安全，windows安全，漏洞挖掘，代码审计，智能合约"
 url: "https://wh0ale.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
-github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
+github_repo: "https://github.com/Wh0ale/Wh0ale.github.io.git" # you code repository
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
