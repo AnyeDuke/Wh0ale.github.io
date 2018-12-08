@@ -67,6 +67,10 @@ kramdown:
 #  admin: Wh0ale
 #  distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
+#gitment
+comment_gitment_repo: wh0ale.github.io
+comment_gitment_clientId: 9d3fff90ecac7609fb89
+comment_gitment_clientSecret: 8bcad4c0ddb5b5e63829feaee7353e72ffc64c17
 
 # 统计
 
