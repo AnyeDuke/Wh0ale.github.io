@@ -138,6 +138,21 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
+<!-- Add Comment -->
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+    owner: 'Wh0ale',
+    repo: 'wh0ale.github.io',
+    oauth: {
+        client_id: '9d3fff90ecac7609fb89',
+        client_secret: '8bcad4c0ddb5b5e63829feaee7353e72ffc64c17',
+    },
+});
+gitment.render('gitmentContainer');
+</script>
 
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
@@ -226,20 +241,5 @@ layout: default
     }
 </style>
 
-<!-- Add Comment -->
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-    owner: 'Wh0ale',
-    repo: 'wh0ale.github.io',
-    oauth: {
-        client_id: '9d3fff90ecac7609fb89',
-        client_secret: '8bcad4c0ddb5b5e63829feaee7353e72ffc64c17',
-    },
-});
-gitment.render('gitmentContainer');
-</script>
 
 {% endif %}
