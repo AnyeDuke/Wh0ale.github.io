@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Splunk
+title:      Splunk Shell
 date:       2018-12-08
 author:     Wh0ale
 header-img: img/wallhaven-701358.jpg
