@@ -138,21 +138,31 @@ layout: default
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 sidebar-container">
-<!-- Add Comment -->
-<div id="gitmentContainer"></div>
-<link rel="stylesheet" href="https://jjeejj.github.io/css/gitment.css">
-<script src="https://jjeejj.github.io/js/gitment.js"></script>
-<script>
-var gitment = new Gitment({
-    owner: 'Wh0ale',
-    repo: 'wh0ale.github.io',
-    oauth: {
-        client_id: '9d3fff90ecac7609fb89',
-        client_secret: '8bcad4c0ddb5b5e63829feaee7353e72ffc64c17',
-    },
-});
-gitment.render('gitmentContainer');
-</script>
+
+                <!--Gitalk评论start  -->
+                {% if site.gitalk.enable %}
+                <!-- 引入Gitalk评论插件  -->
+                <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+                <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script>
+                <div id="gitalk-container"></div>
+                <!-- 引入一个生产md5的js，用于对id值进行处理，防止其过长 -->
+                <!-- Thank DF:https://github.com/NSDingFan/NSDingFan.github.io/issues/3#issuecomment-407496538 -->
+                <script src="{{ site.baseurl }}/js/md5.min.js"></script>
+                <script type="text/javascript">
+                    var gitalk = new Gitalk({
+                    clientID: '9d3fff90ecac7609fb89',
+                    clientSecret: '8bcad4c0ddb5b5e63829feaee7353e72ffc64c17',
+                    repo: 'wh0ale.github.io',
+                    owner: 'wh0ale',
+                    admin: ['wh0ale'],
+                    distractionFreeMode: {{site.gitalk.distractionFreeMode}},
+                    id: md5(location.pathname),
+                    });
+                    gitalk.render('gitalk-container');
+                </script>
+                {% endif %}
+                <!-- Gitalk end -->
+                
 
                 <!-- Featured Tags -->
                 {% if site.featured-tags %}
