@@ -147,7 +147,7 @@ username=test8&password=test8&phone=0x6161612720756e696f6e2073656c6563742067726f
 
 发现只有 **admin** 才能用留言板功能，所以 **伪造admin的token** 登录：
 
-[![img](https://xzfile.aliyuncs.com/media/upload/picture/20180828204721-816bdcfe-aac0-1.png)](https://xzfile.aliyuncs.com/media/upload/picture/20180828204721-816bdcfe-aac0-1.png)
+[![img](https://xzfile.aliyuncs.com/media/upload/picture/20180828204721-816bdcfe-aac0-1.png)
 
 **virink** 师傅提醒说留言板处存在 **SSTI** ，于是测试了下，果然存在，只不过过滤了 **{{}}** 的写法，那我们可以换成流程控制结构的写法 **{%if 表达式%}内容1{%else%}内容2{%endif%}** ，测试如下：
 
@@ -211,3 +211,5 @@ print(len(r.text))
 [深入了解Json Web Token之概念篇](https://www.freebuf.com/articles/web/180874.html)
 
 [深入了解Json Web Token之实战篇](https://www.freebuf.com/articles/web/181261.html)
+
+https://jwt.io/
