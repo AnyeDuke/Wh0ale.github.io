@@ -19,12 +19,12 @@ sidebar-avatar: /img/wallhaven-699853.png     # use absolute URL, seeing it's us
 # SNS settings
 RSS: false
 # weibo_username:     Wh0ale
-zhihu_username:     _Andy_
+# zhihu_username:     _Andy_
 github_username:    Wh0ale
 twitter_username:   An0dy1
 
-
-
+# Sitemap
+# Sitemap: {{ site.url }}/sitemap.xml
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
