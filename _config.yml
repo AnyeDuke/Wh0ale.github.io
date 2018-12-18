@@ -38,8 +38,9 @@ anchorjs: true                          # if you want to customize anchor. check
 # Gems
 # from PR#40, to support local preview for Jekyll 3.0
 plugins: [jekyll-paginate]
-
-
+#　生成 sitemap,这个有利于搜索引擎爬取你网站的结构页面
+gems:
+  - jekyll-sitemap
 
 
 # Markdown settings
