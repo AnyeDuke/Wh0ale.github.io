@@ -1,9 +1,9 @@
 ---
 layout:     post
 title:      BypassWaf_sql
-date:       2019-1-6
+date:       2019-1-7
 author:     Wh0ale
-header-img: img/sqljection.jpg
+header-img: img/sky_lanterns_by_wlop-d7b5nfg.jpg
 catalog: true
 tags:
     - sql
