@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      xss漏洞
+title:      BypassWaf_xss
 date:       2018-12-28
 author:     Wh0ale
 header-img: img/jade_by_wlop-d9n5wvp.jpg

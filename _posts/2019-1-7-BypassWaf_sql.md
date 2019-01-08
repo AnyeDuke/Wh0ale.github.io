@@ -9,7 +9,9 @@ tags:
     - sql
 ---
 
-# **0x01 BypassWaf_sql**
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyl7t8lzqkj215u0qjdj9.jpg)
+
+# 0x01 BypassWaf_sql**
 
 ## 1. 数据库特性 
 

@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      webshell Bypass
+title:      BypassWaf_webshell
 date:       2019-1-3
 author:     Wh0ale
 header-img: img/anatomy_of_php_hack.jpg
