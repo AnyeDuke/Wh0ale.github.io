@@ -573,11 +573,130 @@ on\w+=(?:prompt|alert|confirm){1}\(\w+\)
 
 
 
+# 0x05 实战
+
+## 一、pdf xss
+
+在新建文档中添加页面属性
+
+在动作标签运行JavaScript命令`app.alert(‘XSS’);`
+
+然后保存为PDF文件
+
+打开pdf文件，JavaScript代码执行
+
+尝试把 PDF 文件嵌入到网页中并试运行。创建一个 HTML 文档，代码如下：
+
+```html
+<html>
+<body>
+<object
+data="test.pdf" width="100%" heigh="100%"
+type="application/pdf"></object>
+</body>
+</html>
+```
+
+除了把 JavaScript 嵌入 PDF 文件中执行，还可以利用基于 DOM 的方法执行 PDF XSS。
+
+**修复方法**
+
+　　而作为网站管理员或开发者，可以选择强迫浏览器下载 PDF 文件，而不是提供在线浏览等，或修改 Web 服务器配置的 header 和相关属性。
+
+　　可以使用第三方插件解析pdf，不用chrome自带的pdf解析就行，https://github.com/adobe-type-tools/cmap-resources
+
+参考链接：
+
+[https://www.t00ls.net/thread-48480-1-1.html](https://www.t00ls.net/thread-48480-1-1.html)
+
+[https://blog.xss.lc/experience-sharing/71.html](https://blog.xss.lc/experience-sharing/71.html)
+
+
+
+## 二、上传文件处XSS
+
+在上传的图片内容中插入xss攻击的payload，之后访问返回的name文件，可触发xss代码。
+
+修改页面内容为payload
+
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fz2f87r87wj20l607o0vf.jpg)
+
+访问图片url触发xss
+
+**安全建议**：
+
+(1) 判断参数的合法性，不合法不返回任何内容。
+
+(2) 对用户输入进行html实体编码，并过滤常见html标签及javascript脚本。
+
+
+
+**文件上传处文件名XSS**
+
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fz2fcazc3bj20qy0ezwiv.jpg)
+
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fz2fe0qt0gj20r00d6djd.jpg)
+
+**安全建议：**
+
+(1) 判断参数的合法性，不合法不返回任何内容。
+
+(2) 严格限制URL参数输入值的格式，不能包含不必要的特殊字符（%0d、%0a、%0D、%0A等）。
+
+(3) 针对Cookie设置HttpOnly策略。
+
+(4) 针对ASP.NET的防XSS库，Microsoft有提供统一的库，具体可以参见如下链接微软官网：
+
+修改web.config文件:
+
+```
+<configuration>
+
+    <system.web>
+
+        <pages validateRequest="false" />
+
+    </system.web>
+
+</configuration>
+```
+
+[http://msdn.microsoft.com/en-us/library/aa973813.aspx](http://msdn.microsoft.com/en-us/library/aa973813.aspx)
+
+
+
+## 三、excel模版xss
+
+从本地导入excel表格，表格内数据含xss payload 即可触发XSS漏洞
+
+payload：
+
+```javascript
+<img src=x onerror=alert(1)>
+<img/src=""onerror=alert(2)>
+<src=x onerror=alert(1)>
+```
+
+![](https://ws1.sinaimg.cn/large/b6de3d7dly1fz2flkrd5pj20hm0b9ace.jpg)
 
 
 
 
 
+
+
+# 0x06 防御
+
+1、HTML实体化编码，预防xss漏洞。
+
+2、对特殊字符，例如’ “ >< % 等进行过滤。
+
+3、传递参数时对cookies进行校验，防止越权漏洞。
+
+4、开启CSP或HTTPONLY，防止用户凭证泄露。
+
+
+ 
 
 
 
