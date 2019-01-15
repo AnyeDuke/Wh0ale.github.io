@@ -785,3 +785,5 @@ php?>
 [webshell合集](https://github.com/tennc/webshell)
 
 [那些强悍的PHP一句话后门](https://www.uedbox.com/good-php-door/)
+
+<https://www.chabug.org/web/601.html>

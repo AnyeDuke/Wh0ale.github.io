@@ -47,7 +47,7 @@ Copyright (C) 2018 Artifex Software, Inc.  All rights reserved.
 
 #### 3.2 安装Imagemagic
 
-```
+```bash
 c0ny1@Ubuntu /usr/local$ wget https://github.com/ImageMagick/ImageMagick/archive/7.0.8-9.tar.gz
 c0ny1@Ubuntu /usr/local$ tar zxvf 7.0.8-9.tar.gz
 c0ny1@Ubuntu /usr/local$ cd ImageMagick-7.0.8-9/
@@ -125,7 +125,7 @@ quit
 
 将以上poc保存为poc.ps文件，并执行以下命令。
 
-```
+```bash
 gs -q -sDEVICE=ppmraw -dSAFER  poc.ps
 ```
 
@@ -176,7 +176,7 @@ mark /OutputFile (%pipe%id) currentdevice putdeviceprops
 1. 处理图片前，先检查图片的magic      bytes，也就是图片头，如果图片头不是你想要的格式，那么就不调用ImageMagick处理图片。如果你是php用户，可以使用getimagesize函数来检查图片格式，而如果你是wordpress等web应用的使用者，可以暂时卸载ImageMagick，使用php自带的gd库来处理图片。
 2. 使用policy file来防御这个漏洞，这个文件默认位置在      /etc/ImageMagick/policy.xml ，我们通过配置如下的xml来禁止解析https等敏感操作：
 
-```
+```xml
 <policymap> 
 
   <policy domain="coder"
