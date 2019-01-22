@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      BypassWaf_xss
-date:       2018-12-28
+date:       2018-12-30
 author:     Wh0ale
 header-img: img/jade_by_wlop-d9n5wvp.jpg
 catalog: true
@@ -696,7 +696,7 @@ payload：
 4、开启CSP或HTTPONLY，防止用户凭证泄露。
 
 
- 
+
 
 
 
