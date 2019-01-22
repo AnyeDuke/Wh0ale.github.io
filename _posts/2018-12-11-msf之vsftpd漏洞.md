@@ -101,7 +101,7 @@ Tue Sep 11 14:59:24 2007 [pid 3459] [ftp] OK LOGIN;Client "127.0.0.1" ,anon pass
 
 vsftpd-2.3.4早期版本存在恶意的后门，在钟馗之眼上目前骇客以收到如此的主机，不过很多的服务器都已经被修复过，但总有漏网之鱼，有兴趣的小伙伴不妨去试试
 
-![图片描述](https://segmentfault.com/img/bVSoBW?w=853&h=771)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfilp52x4j20np0lfgmb.jpg)
 
 ## 0×02前言
 
@@ -122,11 +122,11 @@ vsftpd-2.3.4早期版本存在恶意的后门，在钟馗之眼上目前骇客�
  先经过nmap –script=vuln扫一遍，得出我们的目标主机的ftp是可以匿名登录的，并且版本也是2.3.4，当然这个主机 是metasploitable2
 ```
 
-![图片描述](https://segmentfault.com/img/bVSoCc?w=843&h=80)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfilwz2d7j20nf0280sl.jpg)
 
 下一步，还等什么，看一下msf中有没有相关可以用的exp啊，这里我省略了搜索的过程，大家如果不知道怎么搜，可以搜他的服务，或者是他的版本，或者是其他的一些关键词，
 
-![图片描述](https://segmentfault.com/img/bVSoCQ?w=857&h=483)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfim30nvej20nt0dfmxd.jpg)
 
 针对 vsftp的2.3.4版本的exp只有这个，那我们就简单的试一下，老样子，还是看一下他需要的参数，然后我们再给他添加一些，基本上就可以了，喜欢细致的我，在说一遍这里的参数，其中 rhost 表示目标主机的ip地址，rport当然就是目标主机的端口啦，这里默认给出的是21，当然，任何端口都是可以进行修改的，所以大家在实际使用过程中要注意好端口哦
 
@@ -134,7 +134,7 @@ vsftpd-2.3.4早期版本存在恶意的后门，在钟馗之眼上目前骇客�
  这里的目标主机的ip是  10.0.10.104  在新版本的msf中，允许不添加payload参数，可有系统自动给出，所以这里我就不直接写上了
 ```
 
-![clipboard.png](https://segmentfault.com/img/bVSoC3?w=936&h=743)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfim7v9hlj20q00knwic.jpg)
 
 ## 0×05攻击
 
@@ -142,7 +142,7 @@ vsftpd-2.3.4早期版本存在恶意的后门，在钟馗之眼上目前骇客�
 攻击的话，直接使用参数exploit就可以了，如果其中发生报错，我们就需要根据每一条去解决，
 ```
 
-![图片描述](https://segmentfault.com/img/bVSoDd?w=1211&h=452)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfimdy2p6j20xc0cgju9.jpg)
 
 执行到这里，基本上拿到了shell，而且是root权限，那我们就可以创建一个用户，用普通用户正大光明的登陆进去，然后在，想办法提权，
 
@@ -152,22 +152,22 @@ vsftpd-2.3.4早期版本存在恶意的后门，在钟馗之眼上目前骇客�
 首先 msfconsole通过发送ack的探测包，确定了目标服务器的21端口的服务版本，通过返回的数据包可以明确的看到具体的版本，这里我也建议大家使用namp的时候用ack的扫描方式和syn的扫描方式，速度快而且准确，
 ```
 
-![图片描述](https://segmentfault.com/img/bVSoDt?w=895&h=395)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfimj5ooaj20xc0cgju9.jpg)
 
 接着，msf通过匿名登录到目标服务器上，并尝试触发恶意后门，
 
-![图片描述](https://segmentfault.com/img/bVSoDA?w=1119&h=112)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfimrilmmj20ov0azdh3.jpg)
 ![图片描述](https://segmentfault.com/img/bVSoDG?w=1249&h=359)
 
 ```
 恶意后门被触发成功，并且反弹了一个shell给8这台机器，上半文是以前做的日志，下面抓包的图是现在截获的，所以大家就不要好奇了，同样在攻击者这边每次执行命令之后，都会发送到受害者这边，我们在wireshack截获的数据包中可以清晰的看到
 ```
 
-![图片描述](https://segmentfault.com/img/bVSoDM?w=1273&h=186)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfimxtl7ij20v3034q3t.jpg)
 
 这是刚刚触发的图，我们可以清楚的看到，这是而已代码执行，而没有建立会话，如果是会话会有提示符的，而这个没有，也就是说他可以使用当前的root用户执行任意命令，比如说添加一个用户
 
-![图片描述](https://segmentfault.com/img/bVSoDS?w=1048&h=369)
+![](https://ws1.sinaimg.cn/large/b6de3d7dgy1fzfinlucyyj20t40a9n08.jpg)
 
 
 
