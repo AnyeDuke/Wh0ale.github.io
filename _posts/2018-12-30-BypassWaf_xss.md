@@ -332,7 +332,7 @@ PowerDNS Recursor是一款高端，高性能的解析名称服务器，可为至
 
 [XSS的威力：从XSS到SSRF再到Redis](https://www.anquanke.com/post/id/156377)
 
-## **1.xssme**
+## **一、xssme**
 
 payload：
 
@@ -362,7 +362,7 @@ PHPSESSID=9crkuhdqs9b1jkslebpieprr86; FLAG_XSSME=FLAG{Sometimes, XSS can be crit
 
 
 
-## **2.xssrf leak**
+## **二、xssrf leak**
 
 xss去本地访问，再将页面内容打出来
 
@@ -457,7 +457,7 @@ xmlhttp.send("url=file:///var/www/html/config.php");
 FLAG{curl -v -o flag --next flag://in-the.redis/the?port=25566&good=luck}
 ```
 
-## **3. xssrf redis**
+## **三、xssrf redis**
 
 只剩下最后一步打redis了
 
@@ -695,9 +695,11 @@ payload：
 
 4、开启CSP或HTTPONLY，防止用户凭证泄露。
 
+# 0x07 补充CSP
 
+<https://www.jianshu.com/p/f1de775bc43e>
 
-
+<https://xz.aliyun.com/t/4074#toc-8>
 
 
 
